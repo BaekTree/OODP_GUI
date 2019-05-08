@@ -22,8 +22,9 @@ class TaskListPane extends ListPane{
 </pre>
 
 5월 8일
-
-1. class ListPane
+commit 2
+```
+class ListPane
 
 	 adjust template method design pattern
 
@@ -31,13 +32,16 @@ class TaskListPane extends ListPane{
 	 hook method: showList()
 
 	 plus: the design pattern is adjusted to panes.
+```
 
-2. class ListPane
+```
+class ListPane
 	tried factory method pattern on button handlers
 	turned out it is impossible since the handlers themselves
 	are the key specifier to distinguish which buttons are pressed.
-
-3. class AddEachEntityBt
+```
+commit 3
+```class AddEachEntityBt
 	separated from Handler class
 
 	adjusted template method design pattern as well
@@ -47,13 +51,20 @@ class TaskListPane extends ListPane{
 
 	the design pattern is adjusted to handle method,
 	this is the difference from the 1. ListPane pattern.
-
-4. class SpecificHandler
+```
+commit 5
+```
+class SpecificHandler_factory
 	separated from Handler class
 
-	adjusted template method design pattern
+	adjusted factory design pattern
 
-	template method: handle()
-	hook method: setPane()
+	factory class: EachPaneFactory
+	how to call:
+	어떤 버튼이 눌리냐에 따라 핸들러는 factory 클래스로 고유한 string을 보낸다.
+	받은 string에 따라서 factory class는 해당하는 pane instance를 생성해서 반환한다.
+	각 핸들러는 반환받은 pane instance를 받아서 새로운 pane을 만든다.
+
 
 	same means used in 3. AddEachEntityBt
+```
