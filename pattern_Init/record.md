@@ -19,5 +19,18 @@ class TaskListPane extends ListPane{
     //-> 비슷한 Pane들끼리 비슷한 버튼을 부른다. strategy pattern?</b>
 	}
 }//TaskListPane
-</pre?
+</pre>
 
+5월 8일
+
+1. class ListPane
+
+	 adjust teplate method design pattern
+
+	 template method: showGUI()
+	 hook method: showList()
+
+2. class ListPane
+	tried factory method pattern on button handlers
+	turned out it is impossible since the handlers themselves
+	are the key specifier to distinguish which buttons are pressed. 
