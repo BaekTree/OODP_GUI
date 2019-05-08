@@ -1,3 +1,14 @@
+/**
+ * 
+ * change log: 
+ * 
+ * Date: May 7th
+ * separate the AddEachEntityButton class.
+ * 
+ * Date: May 8th
+ * separate the SpecificHandler class
+ * */
+
 package pattern_Init;
 
 import javafx.event.ActionEvent;
@@ -14,7 +25,7 @@ import javafx.stage.Stage;
 
 
 	abstract class Handler implements EventHandler<ActionEvent>{
-		protected Scene scene = Login_v2.getScene();	//여기서 통째로 불러와서 자식들에게 다 상속해준다. 
+		protected Scene scene = Login_v2.getScene();	//call window and scene here to inherit to children classes. 
 		protected Stage window = Login_v2.getStage();
 		@Override
 		public abstract void handle(ActionEvent event);
@@ -53,7 +64,7 @@ import javafx.stage.Stage;
 
 
 
-	class TaskBtHandler extends Handler{
+	class TaskMainBtHandler extends Handler{
 
 		@Override
 		public void handle(ActionEvent event) {
@@ -68,7 +79,7 @@ import javafx.stage.Stage;
 		}
 	}	//TaskBtHandler
 
-	class SchBtHandler extends Handler{
+	class SchMainBtHandler extends Handler{
 		@Override
 		public void handle(ActionEvent event) {
 			HomePane rootPane;
@@ -82,7 +93,7 @@ import javafx.stage.Stage;
 		}
 	}
 
-	class RecordBtHandler extends Handler{
+	class RecordMainBtHandler extends Handler{
 		@Override
 		public void handle(ActionEvent event) {
 			HomePane rootPane;
@@ -98,47 +109,6 @@ import javafx.stage.Stage;
 
 
 
-	class AddTaskBtHandler extends Handler{
-
-		@Override
-		public void handle(ActionEvent event) {
-			// TODO Auto-generated method stub
-			NewTaskPane textListPane = new NewTaskPane();
-
-			HomePane rootPane = new HomePane(new MainLeftPane(),textListPane);
-			scene = new Scene(rootPane,1000,400);
-			window.setScene(scene);
-		}
-
-	}
-
-	class AddSchBtHandler extends Handler{
-
-		@Override
-		public void handle(ActionEvent event) {
-			// TODO Auto-generated method stub
-			NewSchedulePane SchListPane = new NewSchedulePane();
-
-			HomePane rootPane = new HomePane(new MainLeftPane(),SchListPane);
-			scene = new Scene(rootPane,1000,400);
-			window.setScene(scene);
-		}
-
-	}
-
-	class AddRecBtHandler extends Handler{
-
-		@Override
-		public void handle(ActionEvent event) {
-			// TODO Auto-generated method stub
-			NewRecordPane RecListPane = new NewRecordPane();
-
-			HomePane rootPane = new HomePane(new MainLeftPane(),RecListPane);
-			scene = new Scene(rootPane,1000,400);
-			window.setScene(scene);
-		}
-
-	}
 
 
 
@@ -243,45 +213,9 @@ import javafx.stage.Stage;
 		}
 
 	}
+	
+	
+	
+	
+	
 
-	class TaskSpecificHandler extends Handler{
-		private int index;
-		public TaskSpecificHandler(int i){
-			this.index = i;
-		}
-		@Override
-		public void handle(ActionEvent event){
-			TaskPane taskPane = new TaskPane(index);
-			HomePane rootPane = new HomePane(new MainLeftPane(),taskPane);
-			scene = new Scene(rootPane,1000,400);
-			window.setScene(scene);
-		}
-	}
-
-	class RecordSpecificHandler extends Handler{
-		private int index;
-		public RecordSpecificHandler(int i){
-			this.index = i;
-		}
-		@Override
-		public void handle(ActionEvent event){
-			RecordPane recordPane = new RecordPane(index);
-			HomePane rootPane = new HomePane(new MainLeftPane(),recordPane);
-			scene = new Scene(rootPane,1000,400);
-			window.setScene(scene);
-		}
-	}
-
-	class SchSpecificHandler extends Handler{
-		private int index;
-		public SchSpecificHandler(int i){
-			this.index = i;
-		}
-		@Override
-		public void handle(ActionEvent event){
-			SchPane schPane = new SchPane(index);
-			HomePane rootPane = new HomePane(new MainLeftPane(),schPane);
-			scene = new Scene(rootPane,1000,400);
-			window.setScene(scene);
-		}
-	}
