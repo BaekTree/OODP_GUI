@@ -54,9 +54,9 @@ class MainLeftPane extends VBox{
 		Button btrec = new Button("Record Management");
 		getChildren().addAll(bttask,btsch,btrec);
 
-		bttask.setOnAction(new TaskBtHandler());
-		btsch.setOnAction(new SchBtHandler());
-		btrec.setOnAction(new RecordBtHandler());
+		bttask.setOnAction(new TaskMainBtHandler());
+		btsch.setOnAction(new SchMainBtHandler());
+		btrec.setOnAction(new RecordMainBtHandler());
 
 
 	}

@@ -25,12 +25,35 @@ class TaskListPane extends ListPane{
 
 1. class ListPane
 
-	 adjust teplate method design pattern
+	 adjust template method design pattern
 
 	 template method: showGUI()
 	 hook method: showList()
 
+	 plus: the design pattern is adjusted to panes.
+
 2. class ListPane
 	tried factory method pattern on button handlers
 	turned out it is impossible since the handlers themselves
-	are the key specifier to distinguish which buttons are pressed. 
+	are the key specifier to distinguish which buttons are pressed.
+
+3. class AddEachEntityBt
+	separated from Handler class
+
+	adjusted template method design pattern as well
+
+	template method: handle()
+	hook method: setPane()
+
+	the design pattern is adjusted to handle method,
+	this is the difference from the 1. ListPane pattern.
+
+4. class SpecificHandlerTmplt
+	separated from Handler class
+
+	adjusted template method design pattern
+
+	template method: handle()
+	hook method: setPane()
+
+	same means used in 3. AddEachEntityBt
